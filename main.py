@@ -1,12 +1,8 @@
-from flask import Flask
+from config import config
+from src import init_app
 
-app = Flask(__name__)
-
-
-@app.route("/")
-def index():
-    return "Main python ready"
-
+configuration = config['development']
+app = init_app(configuration)
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
